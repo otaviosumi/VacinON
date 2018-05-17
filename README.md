@@ -1,9 +1,16 @@
 VacinON
 =======
 
-
-
 A Web App developed to help keep track of vaccination shots.
+
+
+Enviroment:
+----------
+Developed using Python 2.7.12
+
+Installed using "sudo pip install":
+- flask 0.12.2
+- pymongo 3.6.1
 
 
 Developed by:
