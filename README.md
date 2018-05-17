@@ -1,8 +1,13 @@
-# VacinON
+VacinON
+=======
+
+
 
 A Web App developed to help keep track of vaccination shots.
 
+
 Developed by:
+-------------
 
 Bruno Diego Yoshikawa (bruno.diego.yoshikawa@gmail.com)
 
