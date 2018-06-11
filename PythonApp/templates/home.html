@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-	<title>VacinON | Home</title>
+	<title>VacinON - Home</title>
 </head>
 
 <body>
-	<div>
+	<div class="main-title">
 		<h1>Vacin<font color="red">ON</font></h1>
 	</div>
-	<div class="toolbar">
-		<ul>
+	<div>
+		<ul class="toolbar">
 			<li>
 				<a href="#">Home</a>
 			</li>
@@ -22,12 +22,41 @@
 		</ul>
 		
 	</div>
+	{% if user %}
+	<div>
+		<h2>Seja bem vindo {{ user.username}}!</h2>
+	</div>
+	{% else %}
 	<div>
 		<h2>Seja bem vindo!</h2>
 	</div>
+	{% endif %}
+
+	{% if vacinas %}
+	<div>
+		<h3>Vacinas cadastradas:</h3>
+		<table style="width:40%">
+			<tr>
+				<th>Tipo</th>
+				<th>Data</th>
+				<th>Lote</th>
+			</tr>
+			{% for vacina in vacinas %}
+			<tr>
+				<th> {{vacina.tipo}} </th>
+				<th> {{vacina.data}} </th>
+				<th> {{vacina.lote}} </th>
+			</tr>
+			{% endfor %}
+		</table>
+	</div>
+	
+	{% else %}
 	<div>
 		<h3>
-			Info a respeito do site
+			Sem vacinas cadastradas!
 		</h3>
 	</div>
+	{% endif %}
+	
 </body>
