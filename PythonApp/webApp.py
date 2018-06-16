@@ -35,9 +35,10 @@ vaccines = [
 
 user = {
 		'_id' : 1,
+		'password' : 654321,
 		'username' : 'Bob',
-		'sus' : 3928840,
-		'age' : '26',
+		'sus' : 123456,
+		'sex' : 'outro',
 		'bloodType' : 'A+',
 		'birthday' : '24/02/1992',
 		'dateInserted' : datetime.datetime.now(),
@@ -61,28 +62,39 @@ def findUserBySUS(susNumber):
 def getUserVaccines(susNumber):
 	return usuarios.find_one({'sus' : susNumber})['vaccines']
 
+def loginChecker(susNumber, password):
+	if findUserBySUS(susNumber)['password'] == password:
+		return True
+	else:
+		return False
+
+
 #End of DB start code #DB###################################################################
 
-username = 'Bob'
 
 app = Flask(__name__)
 
 
-
-
-
 @app.route("/")
-@app.route("/home")
-def home():
-	return render_template('home.html', vacinas=getUserVaccines(3928840), user=findUserBySUS(3928840))
+@app.route("/home/<uuid>")
+def home(uuid):
+	if session.get('logged_in'):
+		return render_template('home.html', vacinas=getUserVaccines(int(uuid)), user=findUserBySUS(int(uuid)))
+	else:
+		return redirect(url_for('login'))
 
-@app.route("/showlogin")
+@app.route("/showlogin", methods=['GET', 'POST'])
 def login():
+	if request.method == 'POST':
+		if loginChecker(int(request.form['username']), int(request.form['password'])):
+			session['logged_in'] = True
+			return redirect(url_for('home', uuid=int(request.form['username'])))
 	return render_template('showlogin.html')
 
 @app.route("/showlogout")
 def logout():
-	return render_template('showlogout.html')
+	session['logged_in'] = False
+	return redirect(url_for('login'))
 
 
 if __name__ == "__main__":

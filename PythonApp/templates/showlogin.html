@@ -20,6 +20,13 @@
 				<a href="showlogout">Sair</a>
 			</li>
 		</ul>
-		
+	</div>
+	<div>
+		<h2>Entre com suas credenciais:</h2>
+		<form action="" method="post">
+			<input type="text" placeholder="Usuário" name="username" value="{{ request.form.username }}">
+			<input type="password" placeholder="Senha" name="password" value="{{ request.form.password }}">
+			<input class="btn btn-default" type="submit" value="Entrar">
+		</form>
 	</div>
 </body>
