@@ -46,6 +46,12 @@ Install the MongoDB packages.
 ```
 sudo apt-get install -y mongodb-org=3.6.5 mongodb-org-server=3.6.5 mongodb-org-shell=3.6.5 mongodb-org-mongos=3.6.5 mongodb-org-tools=3.6.5
 ```
+## Runing the webApplication:
+
+You need to run the application (production environment) using the webApp.py file:
+```
+python PythonApp/webApp.py
+```
 
 ## Developed by:
 
