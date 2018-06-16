@@ -8,9 +8,11 @@ Enviroment:
 ----------
 Developed using Python 2.7.12
 
-Installed using "sudo pip install":
-- flask 0.12.2
-- pymongo 3.6.1
+Installed using pip:
+```
+sudo pip install flask 0.12.2
+sudo pip install pymongo 3.6.1
+```
 
 Requirements:
 -------------
