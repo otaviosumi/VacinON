@@ -33,7 +33,7 @@
 			<li>Nascimento: {{user.birthday}}</li>
 		</ul>
 		{% if user.allergies %}
-		<p>Alergias cadastradas:</p>
+		<h3>Alergias cadastradas:</h3>
 		<table style="width: 40%">
 			<tr>
 				<th>Nome da alergia</th>
@@ -58,7 +58,7 @@
 		</table>
 
 		{% else %}
-		<p>Sem alergias cadastradas</p>
+		<h3>Sem alergias cadastradas</h3>
 		{% endif %}
 	</div>
 	{% else %}
