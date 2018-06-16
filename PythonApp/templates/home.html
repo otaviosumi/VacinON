@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
 <head>
 	<title>VacinON - Home</title>
 </head>
@@ -25,6 +26,40 @@
 	{% if user %}
 	<div>
 		<h2>Seja bem vindo {{ user.username}}!</h2>
+		<p>Dados pessoais:</p>
+		<ul>
+			<li>Idade: {{user.age}}</li>
+			<li>Tipo sanguíneo: {{user.bloodType}}</li>
+			<li>Nascimento: {{user.birthday}}</li>
+		</ul>
+		{% if user.allergies %}
+		<p>Alergias cadastradas:</p>
+		<table style="width: 40%">
+			<tr>
+				<th>Nome da alergia</th>
+				<th>Severidade</th>
+			</tr>
+			{% for alergia in user.allergies %}
+			<tr>
+				<th>{{alergia.origin}}</th>
+				{% if alergia.severity == "Risco de vida" %}
+				<th><font color="red">{{alergia.severity}}</font></th>
+				{% elif alergia.severity == "Grave" %}
+				<th><font color="yellow">{{alergia.severity}}</font></th>
+				{% elif alergia.severity == "Mediana" %}
+				<th><font color="orange">{{alergia.severity}}</font></th>
+				{% elif alergia.severity == "Leve" %}
+				<th><font color="green">{{alergia.severity}}</font></th>
+				{% else %}
+				<th>{{alergia.severity}}</th>
+				{% endif %}
+			</tr>
+			{% endfor %}
+		</table>
+
+		{% else %}
+		<p>Sem alergias cadastradas</p>
+		{% endif %}
 	</div>
 	{% else %}
 	<div>
