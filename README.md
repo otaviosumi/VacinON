@@ -1,20 +1,20 @@
-VacinON
-=======
+# VacinON
+
 
 A Web App developed to help keep track of vaccination shots.
 
 
-Enviroment:
-----------
+## Enviroment:
+
 Developed using Python 2.7.12
 
-#Installed using pip:
+### Installed using pip:
 ```
 sudo pip install flask 0.12.2
 sudo pip install pymongo 3.6.1
 ```
 
-#Requirements:
+### Requirements:
 
 It's required to install the mongoDB:
 
@@ -47,8 +47,8 @@ Install the MongoDB packages.
 sudo apt-get install -y mongodb-org=3.6.5 mongodb-org-server=3.6.5 mongodb-org-shell=3.6.5 mongodb-org-mongos=3.6.5 mongodb-org-tools=3.6.5
 ```
 
-Developed by:
--------------
+## Developed by:
+
 
 Bruno Diego Yoshikawa (bruno.diego.yoshikawa@gmail.com)
 
