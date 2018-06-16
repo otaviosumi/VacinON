@@ -8,14 +8,13 @@ Enviroment:
 ----------
 Developed using Python 2.7.12
 
-Installed using pip:
+#Installed using pip:
 ```
 sudo pip install flask 0.12.2
 sudo pip install pymongo 3.6.1
 ```
 
-Requirements:
--------------
+#Requirements:
 
 It's required to install the mongoDB:
 
