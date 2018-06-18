@@ -79,7 +79,10 @@ app = Flask(__name__)
 @app.route("/home/<uuid>")
 def home(uuid):
 	if session.get('logged_in'):
-		return render_template('home.html', vacinas=getUserVaccines(int(uuid)), user=findUserBySUS(int(uuid)))
+		if(usuarios.find_one({'sus' : int(uuid)})):
+			return render_template('home.html', vacinas=getUserVaccines(int(uuid)), user=findUserBySUS(int(uuid)))
+		else:	
+			return redirect(url_for('login'))
 	else:
 		return redirect(url_for('login'))
 
