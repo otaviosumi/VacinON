@@ -36,7 +36,7 @@ vaccines = [
 user = {
 		'_id' : 1,
 		'password' : 654321,
-		'username' : 'Bob',
+		'username' : 'Jhon Doe',
 		'sus' : 123456,
 		'sex' : 'outro',
 		'bloodType' : 'A+',
@@ -85,6 +85,7 @@ def home(uuid):
 			return redirect(url_for('login'))
 	else:
 		return redirect(url_for('login'))
+
 
 @app.route("/showlogin", methods=['GET', 'POST'])
 def login():
