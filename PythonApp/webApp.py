@@ -48,7 +48,7 @@ user = {
 
 usuarios = db.users
 
-if usuarios.find_one({'username' : 'Bob'}):
+if usuarios.find_one({'username' : 'Jhon Doe'}):
 	usuarios.remove({})
 	print('User inserted')
 	usuarios.insert_one(user)
@@ -74,13 +74,12 @@ def loginChecker(susNumber, password):
 
 app = Flask(__name__)
 
-
 @app.route("/")
 @app.route("/home/<uuid>")
-def home(uuid):
+def home():
 	if session.get('logged_in'):
-		if(usuarios.find_one({'sus' : int(uuid)})):
-			return render_template('home.html', vacinas=getUserVaccines(int(uuid)), user=findUserBySUS(int(uuid)))
+		if(usuarios.find_one({'sus' : session.get('uuid')})):
+			return render_template('home.html', vacinas=getUserVaccines(session.get('uuid')), user=findUserBySUS(session.get('uuid')))
 		else:	
 			return redirect(url_for('login'))
 	else:
@@ -92,7 +91,8 @@ def login():
 	if request.method == 'POST':
 		if loginChecker(int(request.form['username']), int(request.form['password'])):
 			session['logged_in'] = True
-			return redirect(url_for('home', uuid=int(request.form['username'])))
+			session['uuid'] = int(request.form['username'])
+			return redirect(url_for('home'))
 	return render_template('showlogin.html')
 
 @app.route("/showlogout")
