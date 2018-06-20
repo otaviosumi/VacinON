@@ -51,7 +51,7 @@ sudo apt-get install -y mongodb-org=3.6.5 mongodb-org-server=3.6.5 mongodb-org-s
 
 Before running the webApp you need to have a longish service running, it can be done by:
 ```
-Audi mongod
+sudo mongod
 ```
 
 You need to run the application (production environment) using the webApp.py file:
