@@ -35,6 +35,7 @@ echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/
 echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.6 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.6.list
 ```
 
+
 Reload local package database.
 
 ```
@@ -47,6 +48,11 @@ Install the MongoDB packages.
 sudo apt-get install -y mongodb-org=3.6.5 mongodb-org-server=3.6.5 mongodb-org-shell=3.6.5 mongodb-org-mongos=3.6.5 mongodb-org-tools=3.6.5
 ```
 ## Runing the webApplication:
+
+Before running the webApp you need to have a longish service running, it can be done by:
+```
+Audi mongod
+```
 
 You need to run the application (production environment) using the webApp.py file:
 ```
